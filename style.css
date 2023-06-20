@@ -1,0 +1,230 @@
+/* Poppins font */
+@font-face {
+  font-family: 'Poppins';
+  src: url(assets/fonts/Poppins-Regular.ttf);
+  font-weight: normal;
+}
+/* Bold */
+@font-face {
+  font-family: 'Poppins';
+  src: url(assets/fonts/Poppins-Bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(assets/fonts/Poppins-ExtraBold.ttf);
+  font-weight: 500;
+}
+/* Italic */
+@font-face {
+  font-family: 'Poppins';
+  src: url(assets/Poppins-Italic.ttf);
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(assets/Poppins-BoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(assets/Poppins-ExtraBoldItalic.ttf);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Colors */
+:root{
+  /* Primary */
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: var(--light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* General */
+.invalid{
+  color: var(--light-red);
+}
+
+/* Container */
+main{
+  min-width: 35%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 1rem 1rem 10rem 1rem;
+  padding: 2.5rem;
+}
+section.inputs{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.6rem;
+}
+section.design-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+section.display{
+  display: flex;
+  flex-direction: column;
+  line-height: 0.85;
+}
+
+/* Label + Input + Error message */
+div.input{
+  display: flex;
+  flex-direction: column;
+}
+div.input:not(:last-child){
+  margin-right: 1.3rem; /* Give a right margin to all the inputs except the last one */
+}
+label{
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--smokey-grey);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+input{
+  max-width: 100px;
+  border-radius: 0.3rem;
+  border: 1px solid var(--light-grey);
+  padding: 0.6rem;
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--off-black);
+  margin-bottom: 0.35rem;
+}
+input:focus{
+  outline: none;
+  border: 1px solid var(--purple);
+}
+.inputs p{
+  font-size: 0.64rem;
+  font-style: italic;
+}
+
+/* Horizontal bar + icon */
+hr{
+  flex-grow: 1;
+  border: 1px solid var(--light-grey);
+  margin: 1.5rem 0;
+}
+button#icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.0rem;
+  height: 4.0rem;
+  background-color: var(--purple);
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+}
+button#icon:hover{
+  background-color: var(--off-black);
+}
+button#icon img{
+  width: 2.0rem;
+  height: 2.0rem;
+}
+
+/* Display */
+section.display p{
+  display: flex;
+  align-items: center;
+  font-size: 4.2rem;
+  font-weight: 1000;
+  color: var(--off-black);
+  transform: skew(-10deg);
+  letter-spacing: -2px;
+}
+section.display p span{
+  font-size: 5rem;
+  color: var(--purple);
+  letter-spacing: 1px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Media queries */
+@media (max-width: 375px) {
+  /* Container */
+  body{
+    align-items: flex-start;
+    margin-top: 4.5rem;
+  }
+  main{
+    max-width: 92%;
+    max-height: 70%;
+    padding: 2.1rem 1.3rem 1.3rem 1.3rem;
+    border-radius: 1rem 1rem 5rem 1rem;
+  }
+  section.inputs{
+    margin-bottom: 1rem;
+  }
+  section.design-bar{
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  /* Input */
+  input{
+    width: 100%;
+  }
+
+  /* Horizontal bar + icon */
+  button#icon{
+    position: absolute;
+    width: 2.8rem;
+    height: 2.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  button#icon img{
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  /* Display */
+  section.display p{
+    font-size: 3.2rem;
+    line-height: 3rem;
+  }
+  section.display p span{
+    font-size: 3.2rem;
+  }
+}
